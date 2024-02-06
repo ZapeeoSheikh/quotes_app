@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quotes_app/Paths/images_url.dart';
+import 'package:quotes_app/Paths/Image%20Paths/images_string.dart';
 import 'package:quotes_app/Utils/colors.dart';
 import 'package:quotes_app/View/quotes_list_page.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: lightColor,
       body: Center(
@@ -38,8 +40,14 @@ class HomePage extends StatelessWidget {
                     backgroundColor: darkColor,
                     minimumSize: Size(double.infinity, 55)),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => QuoteListPage()));
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (_, __, ___) => QuoteListPage(),
+                      transitionDuration: Duration(milliseconds: 800),
+                      transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+                    ),
+                  );
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

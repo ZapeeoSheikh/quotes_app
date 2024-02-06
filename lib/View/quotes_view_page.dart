@@ -7,7 +7,8 @@ import 'package:quotes_app/Utils/colors.dart';
 
 
 class QuoteViewPage extends StatefulWidget {
-  const QuoteViewPage({Key? key}) : super(key: key);
+  const QuoteViewPage({Key? key, required this.index}) : super(key: key);
+  final int index ;
 
   @override
   State<QuoteViewPage> createState() => _QuoteViewPageState();
